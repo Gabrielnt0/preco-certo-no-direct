@@ -57,7 +57,7 @@ a { color: inherit; }
 .hero { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
 .contexto { font-size: 1rem; color: var(--muted); margin: 0 0 1.1rem; }
-.hero h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); max-width: 15ch; margin-bottom: 1.4rem; }
+.hero h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); max-width: 24ch; margin-bottom: 1.4rem; }
 .hero h1 em { color: var(--accent); font-style: normal; }
 .lead { font-size: 1.12rem; color: var(--ink); max-width: 47ch; }
 .acoes { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.5rem; margin-top: 2rem; }
@@ -68,7 +68,7 @@ a { color: inherit; }
 .cartao-resposta .rotulo { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.35rem; line-height: 1.2; margin-bottom: 1.5rem; }
 .msg { padding: 1rem 1.15rem; background: var(--paper-2); margin-bottom: .9rem; font-size: .98rem; }
 .msg--loja { background: #e7eee9; margin-left: 2rem; }
-.msg .quem { display: block; font-size: .8rem; color: var(--muted); margin-bottom: .35rem; }
+.msg .quem { display: block; font-size: .82rem; color: var(--muted); margin-bottom: .35rem; }
 .nota { margin: 1.2rem 0 0; font-size: .95rem; color: var(--muted); }
 
 .section { padding-block: clamp(3.5rem, 7vw, 5.5rem); }
@@ -85,7 +85,7 @@ a { color: inherit; }
 .bloco--ruim { border-left-color: var(--muted); }
 .bloco--bom { border-left-color: var(--good); }
 .chat p { background: var(--paper); padding: .8rem 1rem; margin-bottom: .6rem; font-size: .94rem; }
-.chat small { display: block; margin-top: .3rem; font-size: .75rem; color: var(--muted); }
+.chat small { display: block; margin-top: .3rem; font-size: .82rem; color: var(--muted); }
 .amostra { background: var(--paper); padding: .9rem 1rem; margin-top: 1rem; font-size: .95rem; color: var(--ink); }
 .amostra strong { display: block; color: var(--accent-dark); margin-bottom: .3rem; }
 .passos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
@@ -107,7 +107,7 @@ a { color: inherit; }
 .caixa-cta strong { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.4rem; line-height: 1.2; margin-bottom: .6rem; }
 .caixa-cta p { color: var(--ink); font-size: 1rem; }
 .caixa-cta .btn { width: 100%; }
-.caixa-cta small { display: block; margin-top: 1rem; color: var(--muted); font-size: .8rem; text-align: center; }
+.caixa-cta small { display: block; margin-top: 1rem; color: var(--muted); font-size: .82rem; text-align: center; }
 
 .faq { max-width: 820px; }
 details { background: var(--surface); padding: 1rem 1.2rem; }
@@ -127,6 +127,8 @@ details p { color: var(--ink); margin: .8rem 0 0; font-size: 1rem; }
 .anuncio main { padding-block: clamp(3rem, 7vw, 5.5rem); }
 .anuncio h1 { font-size: clamp(2.2rem, 5vw, 3.7rem); margin-bottom: 1.2rem; }
 .anuncio .lead { max-width: 58ch; }
+.anuncio .valores .novo { color: var(--accent-dark); }
+.anuncio .valores .velho { color: var(--muted); }
 .link-demo { display: block; background: var(--surface); border-left: 6px solid var(--accent); padding: 1.4rem; margin: 2.3rem 0; color: var(--ink); text-decoration: none; }
 .link-demo strong { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.35rem; margin-bottom: .35rem; }
 .link-demo small { color: var(--muted); }
@@ -141,7 +143,8 @@ footer a:hover { color: var(--paper); }
   to { opacity: 1; transform: none; }
 }
 .hero h1, .lead, .acoes, .fatos, .cartao-resposta, .demo-frame, .badge,
-.section h2, .intro, .bloco, .passo, .caixa-cta, .valores, details, .link-demo, .provas figure {
+.section h2, .intro, .bloco, .passo, .caixa-cta, .valores, details, .link-demo, .provas figure,
+.anuncio h1, .anuncio .lead, .anuncio .link-demo, .anuncio .btn {
   animation: entrada .6s ease-out both;
 }
 .cartao-resposta, .demo-frame { animation-delay: .08s; }
@@ -158,7 +161,7 @@ footer a:hover { color: var(--paper); }
 }
 @media (max-width: 520px) {
   body { font-size: 16px; }
-  .wrap { width: calc(100% - 1.75rem); }
+  .wrap { width: calc(100% - 2.25rem); }
   .topo small { display: none; }
   .acoes .btn { width: 100%; }
   .msg--loja { margin-left: 0; }
@@ -168,7 +171,8 @@ footer a:hover { color: var(--paper); }
   html { scroll-behavior: auto; }
   .btn { transition: none; }
   .hero h1, .lead, .acoes, .fatos, .cartao-resposta, .demo-frame, .badge,
-  .section h2, .intro, .bloco, .passo, .caixa-cta, .valores, details, .link-demo, .provas figure {
+  .section h2, .intro, .bloco, .passo, .caixa-cta, .valores, details, .link-demo, .provas figure,
+  .anuncio h1, .anuncio .lead, .anuncio .link-demo, .anuncio .btn {
     animation: none;
   }
 }
