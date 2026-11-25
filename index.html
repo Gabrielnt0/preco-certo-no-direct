@@ -5,101 +5,181 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Preço Certo no Direct — CALCULADORA + 12 PROPOSTAS PARA COTAR SEM ERRAR</title>
 <meta name="description" content="Você não perde cliente porque não sabe escrever. Você perde margem porque chuta preço. Preço Certo no Direct é um material de Writing & Publishing para lojinhas brasileiras que vendem por Instagram e WhatsApp. Ele transforma custo real em preço sugerido e entrega uma proposta pronta para copiar no direct. Dentro: calculadora offline, 12 modelos de proposta com 'quando usar' e 'o que evitar', matriz de decisão para objeções e checklist antes de enviar. Tudo em português, em PDF e em HTML que abre no navegador. A calculadora considera custo do produto, embalagem, frete médio, taxa de pagamento e margem líquida desejada. Ela devolve preço sugerido, lucro por venda, margem real e já preenche a proposta escolhida com esses números.">
-<style>
-:root{--paper:#f7f5f0;--card:#fffdf8;--ink:#1b1a18;--muted:#6d685f;--line:#ded8cc;--accent:#a5402a;--green:#2f5d50}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.65 "DM Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.12;letter-spacing:-.02em;margin:0}
-p{margin:0 0 1rem}
-.wrap{width:min(1080px,calc(100% - 2.5rem));margin-inline:auto}
-.topo{border-bottom:1px solid var(--line)}
-.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:72px}
-.marca{font-family:"Fraunces",Georgia,serif;font-size:1.15rem;font-weight:700;text-decoration:none;color:var(--ink)}
-.marca span{color:var(--accent)}
-.topo small{color:var(--muted);font-size:.82rem}
-.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;border:1px solid var(--accent);padding:.85rem 1.5rem;border-radius:2px;font:700 .98rem/1.2 "DM Sans",Arial,sans-serif;text-decoration:none}
-.btn:hover{background:#84311f}
-.btn:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--green);outline-offset:3px}
-.badge{display:inline-block;background:#efebe3;border-left:3px solid var(--accent);padding:.35rem .7rem;font-size:.78rem;color:var(--muted);margin-bottom:.8rem}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1.5rem,4vw,3rem);padding-block:clamp(2.5rem,6vw,4.5rem);align-items:start}
-.eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-.hero h1{font-size:clamp(2.2rem,4.8vw,3.7rem);margin:.9rem 0 1.2rem}
-.hero h1 em{color:var(--accent);font-style:normal}
-.lead{font-size:1.1rem;color:#35322e;max-width:48ch}
-.acoes{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1.2rem;margin-top:1.8rem}
-.acoes a.texto{font-size:.92rem;color:var(--muted);text-underline-offset:4px}
-.selos{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
-.selos span+span::before{content:"·";margin:0 .6rem;color:var(--line)}
-.demo-frame{background:var(--card);border:1px solid var(--line);padding:.7rem}
-.demo-frame .rotulo{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-bottom:.7rem}
-.demo-frame iframe{width:100%;height:760px;border:0;display:block;background:var(--card)}
-.section{border-top:1px solid var(--line);padding-block:clamp(3rem,6vw,5rem)}
-.section h2{font-size:clamp(2rem,4vw,2.9rem);margin:.6rem 0 1rem}
-.intro{color:var(--muted);max-width:62ch;margin-bottom:2.3rem}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.bloco{background:var(--card);border:1px solid var(--line);padding:clamp(1.4rem,3vw,2rem)}
-.bloco h3{font-size:1.4rem;margin-bottom:.4rem}
-.bloco p{color:var(--muted);font-size:.95rem}
-.bloco ul,.bloco ol{margin:1.2rem 0 0;padding-left:1.2rem}
-.bloco li{margin-bottom:.55rem}
-.bloco li::marker{color:var(--accent);font-weight:700}
-.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2.5rem}
-.passo{border-top:2px solid var(--ink);padding-top:1.2rem}
-.passo .num{font-family:"Fraunces",Georgia,serif;font-size:2.4rem;color:var(--accent);display:block;line-height:1;margin-bottom:.7rem}
-.passo h3{font-size:1.2rem;margin-bottom:.5rem}
-.passo p{color:var(--muted);font-size:.95rem}
-.preco{background:var(--ink);color:var(--paper)}
-.preco .wrap{padding-block:clamp(3rem,6vw,5rem);display:grid;grid-template-columns:1.2fr .8fr;gap:2.5rem;align-items:center}
-.preco .eyebrow{color:#e0a48e}
-.preco h2{font-size:clamp(2.2rem,4.5vw,3.2rem);margin:.6rem 0 1rem}
-.preco p{color:#d6d1c7;max-width:48ch}
-.valores{display:flex;align-items:baseline;gap:1rem;margin:1.3rem 0 1.8rem}
-.valores .novo{font-family:"Fraunces",Georgia,serif;font-size:clamp(3rem,6vw,4.4rem);font-weight:700;line-height:1}
-.caixa-cta{background:#262420;border:1px solid #3b3833;padding:1.7rem}
-.caixa-cta strong{display:block;font-family:"Fraunces",Georgia,serif;font-size:1.25rem;margin-bottom:.5rem}
-.caixa-cta p{font-size:.9rem;margin-bottom:1.3rem}
-.caixa-cta .btn{width:100%;background:var(--paper);color:var(--ink);border-color:var(--paper)}
-.caixa-cta small{display:block;margin-top:1rem;color:#b8b2a8;font-size:.8rem;text-align:center}
-.faq{max-width:780px}
-details{border-bottom:1px solid var(--line);padding:1rem 0}
-summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--accent);font-weight:700}
-details[open] summary::after{content:"−"}
-details p{color:var(--muted);margin:.8rem 0 0;font-size:.96rem}
-footer{border-top:1px solid var(--line);padding-block:2.2rem}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center;color:var(--muted);font-size:.88rem}
-footer a{text-underline-offset:4px}
-@media(max-width:860px){.hero-grid,.grid-2,.passos,.preco .wrap{grid-template-columns:1fr}.caixa-cta{max-width:520px}.demo-frame iframe{height:680px}}
-@media(max-width:520px){body{font-size:16px}.wrap{width:calc(100% - 1.75rem)}.topo small{display:none}.acoes .btn{width:100%}.demo-frame iframe{height:640px}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>/* Padrão visual lojinha-direct — pages de venda premium, sem dependências. */
+:root {
+  --paper: #f4efe4;
+  --paper-2: #ece5d7;
+  --surface: #fffdf7;
+  --ink: #1e2421;
+  --muted: #746c60;
+  --accent: #c44d2c;
+  --accent-dark: #9d3820;
+  --focus: #274bb8;
+  --good: #2f5d50;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 17px/1.65 "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 600; line-height: 1.1; letter-spacing: -0.025em; margin: 0; }
+p { margin: 0 0 1rem; }
+a { color: inherit; }
+.wrap { width: min(1120px, calc(100% - 2.5rem)); margin-inline: auto; }
+.skip { position: absolute; left: -9999px; top: 0; background: var(--ink); color: var(--paper); padding: .7rem 1rem; z-index: 10; }
+.skip:focus { left: 1rem; top: 1rem; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+.topo { background: var(--paper-2); }
+.topo .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 76px; }
+.marca { font-family: "Fraunces", Georgia, serif; font-size: 1.2rem; font-weight: 700; text-decoration: none; }
+.marca em { color: var(--accent); font-style: normal; }
+.topo small { color: var(--muted); font-size: .86rem; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent); color: #fff; border: 0; border-radius: 2px;
+  padding: .9rem 1.55rem; font: 700 .98rem/1.2 "DM Sans", Arial, sans-serif;
+  text-decoration: none; transition: background .16s ease-out;
+}
+.btn:hover { background: var(--accent-dark); }
+.btn--claro { background: var(--paper); color: var(--ink); }
+.btn--claro:hover { background: var(--paper-2); }
+.btn--texto { background: transparent; color: var(--ink); padding-inline: 0; text-decoration: underline; text-underline-offset: 5px; }
+.btn--texto:hover { background: transparent; color: var(--accent-dark); }
+
+.hero { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+.contexto { font-size: 1rem; color: var(--muted); margin: 0 0 1.1rem; }
+.hero h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); max-width: 15ch; margin-bottom: 1.4rem; }
+.hero h1 em { color: var(--accent); font-style: normal; }
+.lead { font-size: 1.12rem; color: #38352f; max-width: 47ch; }
+.acoes { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.5rem; margin-top: 2rem; }
+.fatos { display: flex; flex-wrap: wrap; gap: .45rem 1.35rem; margin: 2.2rem 0 0; color: var(--muted); font-size: .92rem; }
+.fatos span::before { content: ""; display: inline-block; width: 7px; height: 7px; background: var(--accent); margin-right: .5rem; vertical-align: middle; }
+
+.cartao-resposta { background: var(--surface); border-left: 6px solid var(--accent); padding: clamp(1.5rem, 3vw, 2.25rem); }
+.cartao-resposta .rotulo { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.35rem; line-height: 1.2; margin-bottom: 1.5rem; }
+.msg { padding: 1rem 1.15rem; background: var(--paper-2); margin-bottom: .9rem; font-size: .98rem; }
+.msg--loja { background: #e7eee9; margin-left: 2rem; }
+.msg .quem { display: block; font-size: .8rem; color: var(--muted); margin-bottom: .35rem; }
+.nota { margin: 1.2rem 0 0; font-size: .95rem; color: var(--muted); }
+
+.section { padding-block: clamp(3.5rem, 7vw, 5.5rem); }
+.section--tint { background: var(--paper-2); }
+.section h2 { font-size: clamp(2.1rem, 4.5vw, 3.2rem); max-width: 22ch; margin-bottom: 1rem; }
+.intro { color: var(--muted); max-width: 62ch; margin-bottom: 2.2rem; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.bloco, .passo { background: var(--surface); border-left: 6px solid var(--accent); padding: clamp(1.4rem, 3vw, 2rem); }
+.bloco h3, .passo h3 { font-size: 1.45rem; margin-bottom: .5rem; }
+.bloco p, .bloco li, .passo p { color: var(--muted); font-size: .96rem; }
+.bloco ul, .bloco ol { margin: 1rem 0 0; padding-left: 1.15rem; }
+.bloco li { margin-bottom: .5rem; }
+.bloco li::marker { color: var(--accent); font-weight: 700; }
+.bloco--ruim { border-left-color: var(--muted); }
+.bloco--bom { border-left-color: var(--good); }
+.chat p { background: var(--paper); padding: .8rem 1rem; margin-bottom: .6rem; font-size: .94rem; }
+.chat small { display: block; margin-top: .3rem; font-size: .75rem; color: var(--muted); }
+.amostra { background: var(--paper); padding: .9rem 1rem; margin-top: 1rem; font-size: .9rem; color: var(--muted); }
+.amostra strong { display: block; color: var(--accent-dark); margin-bottom: .3rem; }
+.passos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+.passo p:last-child { margin-bottom: 0; }
+
+.badge { display: inline-block; background: var(--paper-2); color: var(--accent-dark); padding: .4rem .8rem; font-size: .9rem; margin-bottom: 1.2rem; }
+.demo-frame { background: var(--surface); border-left: 6px solid var(--accent); padding: 1rem; }
+.demo-frame .rotulo { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.15rem; margin-bottom: .8rem; }
+.demo-frame iframe { width: 100%; height: 760px; border: 0; display: block; background: var(--surface); }
+
+.preco { background: var(--ink); color: var(--paper); }
+.preco .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+.preco h2 { color: var(--paper); }
+.preco p { color: #d8d2c6; max-width: 50ch; }
+.valores { display: flex; align-items: baseline; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0; }
+.valores .novo { font-family: "Fraunces", Georgia, serif; font-size: clamp(3rem, 7vw, 4.6rem); font-weight: 700; line-height: 1; color: var(--paper); }
+.valores .velho { font-size: 1.1rem; text-decoration: line-through; color: #a9a198; }
+.caixa-cta { background: var(--paper); color: var(--ink); padding: clamp(1.5rem, 3vw, 2rem); }
+.caixa-cta strong { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.4rem; line-height: 1.2; margin-bottom: .6rem; }
+.caixa-cta p { color: var(--muted); font-size: .95rem; }
+.caixa-cta .btn { width: 100%; }
+.caixa-cta small { display: block; margin-top: 1rem; color: var(--muted); font-size: .8rem; text-align: center; }
+
+.faq { max-width: 820px; }
+details { background: var(--surface); padding: 1rem 1.2rem; }
+details + details { margin-top: .6rem; }
+summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; color: var(--accent); font-weight: 700; }
+details[open] summary::after { content: "−"; }
+details p { color: var(--muted); margin: .8rem 0 0; font-size: .96rem; }
+
+.anuncio .wrap { width: min(860px, calc(100% - 2.5rem)); }
+.anuncio main { padding-block: clamp(3rem, 7vw, 5.5rem); }
+.anuncio h1 { font-size: clamp(2.2rem, 5vw, 3.7rem); margin-bottom: 1.2rem; }
+.anuncio .lead { max-width: 58ch; }
+.link-demo { display: block; background: var(--surface); border-left: 6px solid var(--accent); padding: 1.4rem; margin: 2.3rem 0; color: var(--ink); text-decoration: none; }
+.link-demo strong { display: block; font-family: "Fraunces", Georgia, serif; font-size: 1.35rem; margin-bottom: .35rem; }
+.link-demo small { color: var(--muted); }
+
+footer { background: var(--ink); color: #d8d2c6; padding-block: 2.5rem; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; align-items: center; font-size: .88rem; }
+footer a { text-decoration: underline; text-underline-offset: 4px; }
+footer a:hover { color: var(--paper); }
+
+@media (max-width: 860px) {
+  .hero-grid, .grid-2, .passos, .preco .wrap { grid-template-columns: 1fr; }
+  .hero h1, .section h2 { max-width: none; }
+  .demo-frame iframe { height: 680px; }
+  .caixa-cta { max-width: 560px; }
+}
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .wrap { width: calc(100% - 1.75rem); }
+  .topo small { display: none; }
+  .acoes .btn { width: 100%; }
+  .msg--loja { margin-left: 0; }
+  .demo-frame iframe { height: 640px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
 <header class="topo"><div class="wrap">
-  <a class="marca" href="#inicio">Preço Certo no Direct <span>sem achismo</span></a>
+  <a class="marca" href="#inicio">Preço Certo no Direct</a>
   <small>PDF + calculadora HTML + propostas em JSON · pagamento único</small>
 </div></header>
+
 <main id="conteudo">
   <section class="hero" id="inicio"><div class="wrap hero-grid">
     <div>
-      <p class="eyebrow">CALCULADORA + 12 PROPOSTAS PARA COTAR SEM ERRAR</p>
+      <p class="contexto">CALCULADORA + 12 PROPOSTAS PARA COTAR SEM ERRAR</p>
       <h1>A cliente pergunta o preço. Você chuta um valor. A conta fecha, mas o lucro não.</h1>
       <p class="lead">Calcule quanto cobrar, veja o que sobra depois das taxas e copie uma proposta pronta para enviar no direct. Sem planilha, sem IA paga e sem achismo.</p>
-      <p class="badge">PRÉVIA LOCAL · rascunho na Gumroad, venda não habilitada</p>
+      <p class="badge">PRÉVIA PÚBLICA · rascunho na Gumroad, venda não habilitada</p>
       <div class="acoes">
         <a class="btn" href="#">Quero por R$ 49</a>
-        <a class="texto" href="#oque">Ver o que está incluído ↓</a>
+        <a class="btn btn--texto" href="#oque">Ver o que está incluído</a>
       </div>
-      <p class="selos"><span>Acesso imediato</span><span>Sem mensalidade</span><span>Funciona offline</span></p>
+      <p class="fatos"><span>Acesso imediato</span><span>Sem mensalidade</span><span>Funciona offline</span></p>
     </div>
     <div class="demo-frame" aria-label="Demonstração da calculadora">
-      <p class="rotulo">Teste agora — mesma ferramenta do arquivo</p>
+      <strong class="rotulo">Teste agora. A mesma ferramenta do arquivo.</strong>
       <iframe src="demo.html" title="Calculadora de preço com proposta pronta" loading="lazy"></iframe>
     </div>
   </div></section>
 
-  <section class="section" id="oque"><div class="wrap">
-    <p class="eyebrow">01 / O que você recebe</p>
+  <section class="section section--tint" id="oque"><div class="wrap">
     <h2>Um material curto, direto e usável no mesmo dia.</h2>
     <p class="intro">A calculadora usa custo, embalagem, frete, taxa e margem. As 12 propostas já vêm com o preço preenchido e uma regra curta: quando usar e o que evitar.</p>
     <div class="grid-2">
@@ -107,45 +187,42 @@ footer a{text-underline-offset:4px}
         <h3>12 propostas com regra de uso</h3>
         <p>Cada modelo traz a situação, o texto pronto e uma nota curta: quando usar e o que evitar. Nada de depoimento inventado ou escassez falsa.</p>
         <ul>
-          <li>Preço com frete separado e frete embutido</li>
-          <li>Desconto, quantidade, personalização e prazo</li>
-          <li>'Vou pensar', orçamento sem resposta e pós-venda</li>
+          <li>Preço com frete separado e frete embutido.</li>
+          <li>Desconto, quantidade, personalização e prazo.</li>
+          <li>Vou pensar, orçamento sem resposta e pós-venda.</li>
         </ul>
       </article>
       <article class="bloco">
-        <h3>Calculadora + decisão</h3>
-        <p>Os números que você preenche viram preço sugerido, lucro por venda e margem real. A proposta é preenchida automaticamente com esses valores.</p>
+        <h3>Calculadora e decisão</h3>
+        <p>Os números que você preenche viram preço sugerido, sobra por venda e margem real. A proposta é preenchida automaticamente com esses valores.</p>
         <ol>
-          <li>Custo, embalagem e frete médio</li>
-          <li>Taxa do pagamento e margem desejada</li>
-          <li>Matriz de decisão e checklist antes de enviar</li>
+          <li>Custo, embalagem e frete médio.</li>
+          <li>Taxa do pagamento e margem desejada.</li>
+          <li>Matriz de decisão e checklist antes de enviar.</li>
         </ol>
       </article>
     </div>
   </div></section>
 
   <section class="section" id="como"><div class="wrap">
-    <p class="eyebrow">02 / Como funciona</p>
     <h2>Três passos. Sem pagar ferramenta.</h2>
     <p class="intro">Cinco campos, uma escolha de situação e um botão de copiar. Funciona no navegador, sem internet e sem conta.</p>
-    <div class="passos"><article class="passo"><span class="num">01</span><h3>Preencha os custos</h3><p>Custo da peça, embalagem, frete médio, taxa do meio de pagamento e margem que você quer deixar.</p></article>
-<article class="passo"><span class="num">02</span><h3>Escolha a situação</h3><p>Preço com frete separado, desconto, frete grátis, 'vou pensar', personalização e outras 12 opções.</p></article>
-<article class="passo"><span class="num">03</span><h3>Copie e confira</h3><p>A proposta sai com os números preenchidos. Leia, ajuste prazo e estoque, e cole no direct.</p></article></div>
+    <div class="passos"><article class="passo"><h3>Preencha os custos</h3><p>Custo da peça, embalagem, frete médio, taxa do meio de pagamento e margem que você quer deixar.</p></article>
+<article class="passo"><h3>Escolha a situação</h3><p>Preço com frete separado, desconto, frete grátis, 'vou pensar', personalização e outras 12 opções.</p></article>
+<article class="passo"><h3>Copie e confira</h3><p>A proposta sai com os números preenchidos. Leia, ajuste prazo e estoque, e cole no direct.</p></article></div>
   </div></section>
 
-  <section class="section" id="exemplo"><div class="wrap">
-    <p class="eyebrow">03 / Exemplo honesto</p>
-    <h2>Uma conversa que acontece todo dia</h2>
+  <section class="section section--tint" id="exemplo"><div class="wrap">
+    <h2>Uma conversa que acontece todo dia.</h2>
     <div class="grid-2">
-      <article class="bloco"><h3>A cliente pergunta</h3><p>Oi, quanto fica essa peça com o frete?</p></article>
-      <article class="bloco"><h3>O chute comum</h3><p>(chuta) R$ 89. Depois descobre que sobraram R$ 6.</p></article>
+      <article class="bloco bloco--ruim"><h3>A cliente pergunta</h3><p>Oi, quanto fica essa peça com o frete?</p></article>
+      <article class="bloco bloco--bom"><h3>A resposta com número</h3><p>(chuta) R$ 89. Depois descobre que sobraram R$ 6.</p></article>
     </div>
     <p class="intro" style="margin-top:1.5rem">Não é problema de texto. É problema de conta.</p>
   </div></section>
 
   <section class="section preco" id="preco"><div class="wrap">
     <div>
-      <p class="eyebrow">04 / Preço</p>
       <h2>Um pagamento. Um arquivo. Sem mensalidade.</h2>
       <p>Calculadora offline, 12 propostas com regras de uso, matriz de decisão e checklist para cotar no direct.</p>
       <div class="valores"><span class="novo">R$ 49</span></div>
@@ -160,7 +237,6 @@ footer a{text-underline-offset:4px}
   </div></section>
 
   <section class="section" id="faq"><div class="wrap">
-    <p class="eyebrow">05 / Perguntas frequentes</p>
     <h2>Antes de comprar</h2>
     <div class="faq"><details><summary>Isso não é o que qualquer IA faz?</summary><p>IA escreve texto. Ela não sabe o seu custo, sua taxa, sua embalagem ou sua margem. Aqui você preenche os dados reais e a ferramenta decide o preço e já entrega a proposta com esses números.</p></details>
 <details><summary>Preciso instalar alguma coisa?</summary><p>Não. A calculadora é um arquivo HTML que abre no navegador. Funciona sem internet, sem conta e sem assinatura.</p></details>
@@ -169,8 +245,9 @@ footer a{text-underline-offset:4px}
 <details><summary>Posso usar em qualquer nicho?</summary><p>Foi pensado para lojinhas brasileiras que atendem no direct. Moda, cosméticos, artesanato e doces são os exemplos usados.</p></details></div>
   </div></section>
 </main>
+
 <footer><div class="wrap">
   <span>© 2026 Gabriel Andrade · CALCULADORA + 12 PROPOSTAS PARA COTAR SEM ERRAR.</span>
-  <a href="#inicio">Voltar ao topo ↑</a>
+  <a href="#inicio">Voltar ao topo</a>
 </div></footer>
 </body></html>
