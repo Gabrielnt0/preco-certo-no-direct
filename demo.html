@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Preço Certo no Direct — calculadora</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f7f5f0;color:#1b1a18;font:16px/1.6 'DM Sans',Arial,sans-serif}
+.wrap{width:min(960px,calc(100% - 2rem));margin:0 auto;padding:2rem 0 4rem}
+h1,h2{font-family:'Fraunces',Georgia,serif;line-height:1.15;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(2rem,5vw,3rem)}h2{font-size:1.15rem;margin-bottom:.6rem}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#a5402a}
+.lead{color:#6d685f;max-width:65ch;margin:.8rem 0 1.8rem}
+.painel{background:#fffdf8;border:1px solid #ded8cc;padding:1.2rem;margin-bottom:1.5rem}
+label{display:block;font-size:.8rem;color:#6d685f;margin-bottom:.35rem}
+select,input,textarea{width:100%;padding:.7rem .8rem;border:1px solid #ded8cc;background:#fffdf8;font:inherit;border-radius:2px}
+textarea{min-height:150px;resize:vertical}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.9rem}
+button{margin-top:1rem;background:#a5402a;color:#fff;border:1px solid #a5402a;padding:.75rem 1.2rem;font:700 .95rem 'DM Sans',Arial,sans-serif;border-radius:2px;cursor:pointer}
+button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #2f5d50;outline-offset:2px}
+.resultado{font-family:'Fraunces',Georgia,serif;font-size:2.2rem;color:#a5402a;margin-top:.5rem}
+.detalhes{color:#35322e;font-size:.95rem;margin:.4rem 0 0}
+.proposta{background:#efebe3;border-left:3px solid #a5402a;padding:.9rem 1rem;margin-top:1rem}
+small{display:block;color:#6d685f;margin-top:1.5rem}
+.aviso{background:#efebe3;border-left:3px solid #a5402a;padding:.8rem 1rem;font-size:.9rem;margin-top:1rem}
+.erro{color:#a5402a;font-weight:700}
+</style>
+</head>
+<body><div class="wrap">
+<p class="eyebrow">Ferramenta inclusa · funciona offline</p>
+<h1>Preço Certo no Direct</h1>
+<p class="lead">Preencha os custos reais. A ferramenta calcula o preço e já escreve a proposta com esses números.</p>
+
+<div class="painel"><div class="grid">
+  <div><label for="custo">Custo da peça (R$)</label><input id="custo" type="number" min="0" step="0.01" value="45"></div>
+  <div><label for="embalagem">Embalagem (R$)</label><input id="embalagem" type="number" min="0" step="0.01" value="3"></div>
+  <div><label for="frete">Frete médio (R$)</label><input id="frete" type="number" min="0" step="0.01" value="12"></div>
+  <div><label for="taxa">Taxa do pagamento (%)</label><input id="taxa" type="number" min="0" max="50" step="0.1" value="10"></div>
+  <div><label for="margem">Margem líquida desejada (%)</label><input id="margem" type="number" min="0" max="60" step="0.1" value="25"></div>
+  <div><label for="arredondamento">Arredondar preço</label><select id="arredondamento">
+    <option value="0.90">Terminar em ,90</option>
+    <option value="9.90">Terminar em 9,90</option>
+    <option value="10">Para a dezena</option>
+    <option value="none">Sem arredondar</option>
+  </select></div>
+</div></div>
+
+<div class="painel"><div class="grid">
+  <div><label for="situacao">Situação</label><select id="situacao"></select></div>
+  <div><label for="cliente">Nome da cliente</label><input id="cliente" type="text" value="Ana"></div>
+  <div><label for="produto">Produto</label><input id="produto" type="text" value="bolsa de tecido"></div>
+  <div><label for="prazo">Prazo real</label><input id="prazo" type="text" value="3 dias úteis"></div>
+  <div><label for="pagamento">Forma de pagamento</label><input id="pagamento" type="text" value="Pix ou cartão"></div>
+  <div><label for="quantidade">Unidades disponíveis</label><input id="quantidade" type="text" value="4"></div>
+  <div><label for="detalhe">O que muda na versão simples</label><input id="detalhe" type="text" value="acabamento personalizado"></div>
+  <div><label for="loja">Nome da loja</label><input id="loja" type="text" value="nossa loja"></div>
+</div></div>
+
+<div class="painel">
+  <h2>Preço sugerido</h2>
+  <div class="resultado" id="preco">R$ 0,00</div>
+  <p class="detalhes" id="detalhes"></p>
+  <div class="proposta"><label for="texto-proposta">Proposta pronta para copiar</label><textarea id="texto-proposta" readonly></textarea></div>
+  <button type="button" id="copiar">Copiar proposta</button>
+  <p class="aviso" id="aviso"></p>
+</div>
+<p class="small">A conta usa margem sobre o preço final. Impostos, devoluções e frete real podem mudar o resultado. Confira estoque, prazo e forma de pagamento antes de enviar.</p>
+</div>
+
+<script>
+const PROPOSTAS = [{"id": 1, "titulo": "Preço e frete separados", "situacao": "A cliente perguntou quanto custa e pediu o CEP", "texto": "Oi, {cliente}! A {produto} fica {preco} já com embalagem e sua margem. O frete até o seu CEP é calculado à parte e eu te passo o valor exato antes de fechar. Se confirmar hoje, eu separo e envio em até {prazo}. Quer que eu calcule para o seu CEP?", "quando": "Use quando o frete muda muito de região e você não quer embutir um valor médio no preço.", "evitar": "Não diga 'frete grátis' se a cliente ainda vai pagar o frete separadamente.", "gatilho": "frete"}, {"id": 2, "titulo": "Frete grátis embutido com folga", "situacao": "A cliente pediu frete grátis e sua margem aguenta", "texto": "Oi, {cliente}! Consigo deixar a {produto} por {preco} com o frete já incluído nesse valor. Assim você não paga nada à parte. O envio sai em até {prazo} e o pagamento pode ser {pagamento}. Quer que eu reserve uma para você?", "quando": "Use só quando a calculadora mostrar lucro depois de incluir o frete médio.", "evitar": "Não prometa frete grátis em região onde o frete real passa do valor usado na conta.", "gatilho": "frete gratis"}, {"id": 3, "titulo": "Desconto por quantidade sem quebrar margem", "situacao": "A cliente quer levar 2 ou mais unidades", "texto": "Oi, {cliente}! A {produto} fica {preco} por unidade. Levando 3, eu consigo montar um combo com um pequeno desconto e ainda mantenho a qualidade da embalagem. O prazo continua {prazo}. Quer que eu monte o combo com 3 para você?", "quando": "Use quando o custo de embalagem e envio cai ao mandar várias peças juntas.", "evitar": "Não anuncie um percentual antes de conferir se a margem continua positiva.", "gatilho": "quantidade"}, {"id": 4, "titulo": "Resposta para 'tem desconto?'", "situacao": "A cliente pede desconto sem justificativa", "texto": "Oi, {cliente}! Entendo. O valor da {produto} já está {preco} porque inclui o material, a embalagem e o seu atendimento. O que eu consigo fazer é manter esse valor com {pagamento} ou adiantar o envio em até {prazo}. Quer seguir assim?", "quando": "Use quando o preço já foi calculado e você não quer abrir mão da margem.", "evitar": "Não responda com desconto automático só para não perder a conversa.", "gatilho": "desconto"}, {"id": 5, "titulo": "Follow-up depois do 'vou pensar'", "situacao": "A cliente disse que vai pensar e não respondeu", "texto": "Oi, {cliente}! Só para não te deixar na dúvida: a {produto} continua {preco} e eu tenho unidade disponível agora. Se decidir, me avise até amanhã que eu ainda consigo enviar em {prazo}. Se não der, sem problema.", "quando": "Use no dia seguinte ao orçamento, com prazo e estoque verdadeiros.", "evitar": "Não diga 'última unidade' se o estoque não for realmente esse.", "gatilho": "vou pensar"}, {"id": 6, "titulo": "Escassez real, sem inventar", "situacao": "A cliente pergunta se é a última peça", "texto": "Oi, {cliente}! Tenho {quantidade} unidades da {produto} separadas agora. O valor é {preco} e o envio sai em até {prazo}. Se quiser, eu guardo uma para você até amanhã.", "quando": "Use apenas quando você souber o número real de unidades disponíveis.", "evitar": "Nunca preencha {quantidade} com um número inventado para pressionar a cliente.", "gatilho": "estoque"}, {"id": 7, "titulo": "Contraproposta com versão menor", "situacao": "A cliente quer pagar menos do que o preço calculado", "texto": "Oi, {cliente}! Entendo o orçamento. A versão completa da {produto} fica {preco}. Consigo preparar uma versão mais simples, sem {detalhe}, mantendo a mesma qualidade no que importa. Quer que eu te passe o valor dessa versão?", "quando": "Use quando existir uma variação real que reduza custo sem mudar a promessa da peça.", "evitar": "Não ofereça uma versão que você não consegue entregar.", "gatilho": "menos"}, {"id": 8, "titulo": "Pix e cartão sem surpresa", "situacao": "A cliente pergunta se pode parcelar ou pagar no Pix", "texto": "Oi, {cliente}! A {produto} fica {preco}. No Pix eu consigo manter esse valor; no cartão, a taxa muda e eu te aviso antes de qualquer cobrança. O envio sai em até {prazo}. Qual forma você prefere?", "quando": "Use quando a taxa do meio de pagamento já estiver na sua conta.", "evitar": "Não prometa parcelamento sem saber a taxa real.", "gatilho": "pagamento"}, {"id": 9, "titulo": "Prazo de produção e envio", "situacao": "A cliente quer receber rápido", "texto": "Oi, {cliente}! A {produto} é feita sob encomenda, então o prazo real é de até {prazo} para produção e envio. O valor é {preco} e eu te mando o código de rastreio assim que postar. Pode ser nesse prazo?", "quando": "Use quando a peça realmente é feita sob encomenda.", "evitar": "Não prometa prazo menor que o seu tempo real de produção.", "gatilho": "prazo"}, {"id": 10, "titulo": "Personalização com acréscimo", "situacao": "A cliente quer cor, tamanho ou nome diferente", "texto": "Oi, {cliente}! Consigo personalizar a {produto}. A versão padrão fica {preco}; com o ajuste que você pediu, o valor muda porque entra material e tempo a mais. Me diz o que você quer que eu te passo o valor certo antes de começar.", "quando": "Use quando o pedido sai do seu padrão de custo.", "evitar": "Não aceite personalização sem recalcular custo e prazo.", "gatilho": "personalizacao"}, {"id": 11, "titulo": "Orçamento enviado sem resposta", "situacao": "Você mandou o valor e a cliente sumiu", "texto": "Oi, {cliente}! Vim confirmar se o orçamento da {produto} por {preco} chegou certinho. Se ficou alguma dúvida sobre valor, frete ou prazo, me fala que eu explico. Se não for mais dessa vez, tudo bem.", "quando": "Use 48 horas depois do orçamento, uma única vez.", "evitar": "Não insista várias vezes seguidas nem crie urgência falsa.", "gatilho": "orcamento"}, {"id": 12, "titulo": "Fechamento e pedido de avaliação autorizada", "situacao": "A cliente recebeu o pedido", "texto": "Oi, {cliente}! A {produto} chegou bem? Fico feliz em saber. Se você puder deixar um comentário sobre o que mais gostou, me avise que eu te mando o link. Obrigado por comprar da {loja}!", "quando": "Use depois da entrega, quando houver relação real com a cliente.", "evitar": "Não escreva depoimento por ela nem publique sem autorização.", "gatilho": "pos-venda"}];
+const brl = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+const por = (v) => (v * 100).toFixed(1).replace('.', ',') + '%';
+const sel = document.getElementById('situacao');
+PROPOSTAS.forEach((p) => {
+  const o = document.createElement('option');
+  o.value = String(p.id);
+  o.textContent = String(p.id).padStart(2, '0') + ' — ' + p.titulo;
+  sel.appendChild(o);
+});
+
+function numero(id) { return Math.max(0, parseFloat(document.getElementById(id).value) || 0); }
+function texto(id) { return document.getElementById(id).value || ''; }
+function molde() { return PROPOSTAS.find(p => String(p.id) === sel.value) || PROPOSTAS[0]; }
+
+function calcular() {
+  const custo = numero('custo'), embalagem = numero('embalagem'), frete = numero('frete');
+  const taxa = Math.min(0.5, numero('taxa') / 100), margem = Math.min(0.6, numero('margem') / 100);
+  const base = custo + embalagem + frete;
+  const divisor = 1 - taxa - margem;
+  const precoEl = document.getElementById('preco');
+  const detalhes = document.getElementById('detalhes');
+  const aviso = document.getElementById('aviso');
+  const area = document.getElementById('texto-proposta');
+  if (divisor <= 0) {
+    precoEl.textContent = '—';
+    precoEl.classList.add('erro');
+    detalhes.textContent = 'Taxa + margem passaram de 100%. Ajuste os valores.';
+    area.value = '';
+    aviso.textContent = 'Não dá para calcular com esses números.';
+    return;
+  }
+  precoEl.classList.remove('erro');
+  let preco = base / divisor;
+  const arred = document.getElementById('arredondamento').value;
+  if (arred === '0.90') preco = Math.ceil(preco) - 0.10;
+  if (arred === '9.90') preco = Math.ceil(preco / 10) * 10 - 0.10;
+  if (arred === '10') preco = Math.ceil(preco / 10) * 10;
+  preco = Math.max(0.1, preco);
+  const liquido = preco * (1 - taxa) - base;
+  precoEl.textContent = brl.format(preco);
+  detalhes.textContent = 'Custo total: ' + brl.format(base) +
+    ' · sobra por venda: ' + brl.format(liquido) +
+    ' · margem real: ' + por(liquido / preco);
+  const dados = {
+    '{cliente}': texto('cliente'), '{produto}': texto('produto'), '{preco}': brl.format(preco),
+    '{frete}': brl.format(frete), '{prazo}': texto('prazo'), '{pagamento}': texto('pagamento'),
+    '{quantidade}': texto('quantidade'), '{detalhe}': texto('detalhe'), '{loja}': texto('loja'),
+    '{lucro}': brl.format(liquido), '{margem}': por(liquido / preco)
+  };
+  let mensagem = molde().texto;
+  Object.keys(dados).forEach(k => { mensagem = mensagem.split(k).join(dados[k]); });
+  area.value = mensagem;
+  aviso.textContent = molde().quando + ' ' + molde().evitar;
+}
+
+['custo','embalagem','frete','taxa','margem','arredondamento','situacao','cliente','produto','prazo','pagamento','quantidade','detalhe','loja']
+  .forEach(id => document.getElementById(id).addEventListener('input', calcular));
+document.getElementById('copiar').addEventListener('click', async () => {
+  const area = document.getElementById('texto-proposta');
+  const botao = document.getElementById('copiar');
+  try {
+    await navigator.clipboard.writeText(area.value);
+    botao.textContent = 'Copiado!';
+  } catch (e) {
+    area.select();
+    document.execCommand('copy');
+    botao.textContent = 'Copiado!';
+  }
+  setTimeout(() => { botao.textContent = 'Copiar proposta'; }, 1600);
+});
+calcular();
+</script>
+</body></html>
